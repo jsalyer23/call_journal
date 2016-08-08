@@ -1,0 +1,11 @@
+<h2>Family Member's Name</h2>
+
+<p><%= @call.name %></p>
+
+<h2>Conversation Notes</h2>
+
+<p><%= @call.notes %></p>
+
+<%= link_to "Add New Conversation", new_call_path %><br>
+<%= link_to 'Edit Conversation Notes', edit_call_path(@call) %><br>
+<%= link_to 'View All', calls_path %>

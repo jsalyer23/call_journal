@@ -1,0 +1,22 @@
+<h1>Your Conversations</h1>
+
+<table>
+	<tr>
+		<th>Family Member's Name</th>
+		<th>Notes</th>
+	</tr>
+
+	<!-- This loops through the call objects from the database and displays them -->
+	<!-- with the links to either view, edit, or delete each one. -->
+	<% @call.each do |call| %>
+	<tr>
+		<td><%= call.name %></td>
+		<td><%= call.notes %></td>
+		<td><%= link_to 'View', call %></td>
+        <td><%= link_to 'Edit', edit_call_path(call) %></td> <!-- This displays a pop up message before deleting -->
+        <td><%= link_to 'Delete', call, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+	</tr>
+	<% end %>
+</table>
+
+<%= link_to 'New Conversation', new_call_path %>

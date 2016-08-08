@@ -1,0 +1,37 @@
+<!-- I named the variable a random word just to see if it would break -->
+<!-- It represents the form object used to create labels, text fields, etc within the `form_for` -->
+<%= form_for @call do |dragonfly| %>
+
+    <% if @call.errors.any? %>
+
+      <div>
+
+        <h2>
+          <%= pluralize(@call.errors.count, "error") %> prohibited
+          this conversation note from being saved:
+        </h2>
+
+        <ul>
+          <% @call.errors.full_messages.each do |message| %>
+            <li><%= message %></li>
+          <% end %>
+        </ul>
+
+      </div>
+    <% end %>
+
+  <div>
+    <%= dragonfly.label :name %><br>
+    <%= dragonfly.text_field :name %>
+  </div>
+
+  <div>
+    <%= dragonfly.label :notes %><br>
+    <%= dragonfly.text_area :notes %>
+  </div>
+
+  <div>
+    <%= dragonfly.submit %>
+  </div>
+
+<% end %>
